@@ -6,7 +6,9 @@ import peter from './images/peter.svg';
 import stewie from './images/stewie.svg';
 import Data from './generate.json';
 import Card from 'react-bootstrap/Card'
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
+import  { Link }  from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 console.log(Data)
 function Characters() {
@@ -17,10 +19,16 @@ function Characters() {
 
 
   const ImageList = ({ element, index }) => (
-   <Card key={element.key} style={{width: '18rem'}}>
-    <Card.Img src={element.src} />
-   </Card>
+    <Link to="/">
+   <div style={{backgroundImage: `url${element.src}`}}></div>
+   </Link>
   );
+
+  const Images = arr.map(image => (
+    <Card style={{width: '30rem'}}>
+      <Card.Img src={image} />
+    </Card>
+  ))
 
     const listItems = Data.map((element, index) => (
     <ImageList key={element.id} element={element} index={index} />
@@ -33,7 +41,7 @@ function Characters() {
   return (
     <>
    
-    <div>{listItems}</div>
+    <div>{Images}</div>
     
     </>
     
