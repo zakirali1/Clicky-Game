@@ -11,6 +11,7 @@ function App() {
       <Header />
       </header>
       <Hero />
+      <Characters />
     </div>
   );
 }
